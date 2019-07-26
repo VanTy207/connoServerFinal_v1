@@ -1,0 +1,25 @@
+.info{
+    display: flex;
+    flex-direction: row;
+    padding: 1.5rem;
+    justify-content: space-evenly;
+}
+.profile{
+    text-align: center;
+}
+.list-item{
+    height: 53px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.list-item:hover{
+    background: #fcfcfc;
+    box-shadow: 0 0 5px #ddd;
+}
+a{
+    text-decoration: none !important;
+}

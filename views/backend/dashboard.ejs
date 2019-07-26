@@ -1,0 +1,260 @@
+<div class="row panel-dashboard">
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+        <div class="card card-statistics">
+            <div class="card-body">
+                <div class="clearfix">
+                    <div class="float-left">
+                        <img src="/images/money.png" alt="">
+                    </div>
+                    <div class="float-right">
+                        <p class="mb-0 text-right">Total Revenue</p>
+                        <div class="fluid-container">
+                            <h3 class="font-weight-medium text-right mb-0"><%= Total %></h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- <p class="text-muted mt-3 mb-0">
+                                                        <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> {{'65% lower growth'}}
+                                                      </p> -->
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+        <div class="card card-statistics">
+            <div class="card-body">
+                <div class="clearfix">
+                    <div class="float-left">
+                        <img src="/images/mobile.png" alt="">
+                    </div>
+                    <div class="float-right">
+                        <p class="mb-0 text-right">Orders</p>
+                        <div class="fluid-container">
+                            <h3 class="font-weight-medium text-right mb-0"><%= Order %></h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- <p class="text-muted mt-3 mb-0">
+                                                        <i class="mdi mdi-bookmark-outline mr-1" aria-hidden="true"></i> {{'Product-wise sales'}}
+                                                      </p> -->
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+        <div class="card card-statistics">
+            <div class="card-body">
+                <div class="clearfix">
+                    <div class="float-left">
+                        <img src="/images/sale.png" alt="">
+                    </div>
+                    <div class="float-right">
+                        <p class="mb-0 text-right">Sales</p>
+                        <div class="fluid-container">
+                            <h3 class="font-weight-medium text-right mb-0"><%= sale %></h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- <p class="text-muted mt-3 mb-0">
+                                                        <i class="mdi mdi-calendar mr-1" aria-hidden="true"></i> {{'Weekly Sales'}}
+                                                      </p> -->
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+        <div class="card card-statistics">
+            <div class="card-body">
+                <div class="clearfix">
+                    <div class="float-left">
+                        <img src="/images/employee.png" alt="">
+                    </div>
+                    <div class="float-right">
+                        <p class="mb-0 text-right">Employees</p>
+                        <div class="fluid-container">
+                            <h3 class="font-weight-medium text-right mb-0"><%= emp %></h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- <p class="text-muted mt-3 mb-0">
+                                                        <i class="mdi mdi-reload mr-1" aria-hidden="true"></i> {{'Product-wise sales'}}
+                                                      </p> -->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row panel-dashboard">
+    <div class="col-lg-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Orders</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Stt
+                                </th>
+                                <th>
+                                    Bàn
+                                </th>
+                                <th>
+                                    Trạng Thái
+                                </th>
+                                <th>
+                                    Số Lượng
+                                </th>
+                                <th>
+                                    Tổng Tiền
+                                </th>
+                                <th>
+                                    Chi Tiết
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-weight-medium">
+                                    1
+                                </td>
+                                <td>
+                                    Table 1
+                                </td>
+                                <td>
+                                    <!-- <label class="badge badge-success">Completed</label> -->
+                                    <label class="badge badge-danger">Pending</label>
+                                </td>
+                                <td>
+                                    3 order
+                                </td>
+                                <td class="text-danger"> $ 77.99
+                                    <i class="mdi mdi-arrow-down"></i>
+                                </td>
+                                <td>
+                                    <button (click)="detaiOderId()"><i class="fas fa-user-edit"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-weight-medium">
+                                    2
+                                </td>
+                                <td>
+                                    Table 2
+                                </td>
+                                <td>
+                                    <label class="badge badge-success">Completed</label>
+                                </td>
+                                <td>
+                                    2 order
+                                </td>
+                                <td class="text-success"> $245.30
+                                    <i class="mdi mdi-arrow-up"></i>
+                                </td>
+                                <td>
+                                    <button (click)="detaiOderId()"><i class="fas fa-user-edit"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-weight-medium">
+                                    3
+                                </td>
+                                <td>
+                                    Table 3
+                                </td>
+                                <td>
+                                    <label class="badge badge-warning">Not Acive</label>
+                                </td>
+                                <td>
+                                    4 order
+                                </td>
+                                <td class="text-danger"> $0
+                                    <i class="mdi mdi-arrow-down"></i>
+                                </td>
+                                <td>
+                                    <button (click)="detaiOderId()"><i class="fas fa-user-edit"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-weight-medium">
+                                    4
+                                </td>
+                                <td>
+                                    Peter Meggik
+                                </td>
+                                <td>
+                                    <label class="badge badge-danger">Pending</label>
+                                </td>
+                                <td>
+                                    5 order
+                                </td>
+                                <td class="text-danger"> $ 0
+                                    <i class="mdi mdi-arrow-down"></i>
+                                </td>
+                                <td>
+                                    <button (click)="detaiOderId()"><i class="fas fa-user-edit"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-weight-medium">
+                                    5
+                                </td>
+                                <td>
+                                    Table 5
+                                </td>
+                                <td>
+                                    <label class="badge badge-warning">Not Acive</label>
+                                </td>
+                                <td>
+                                    0 order
+                                </td>
+                                <td class="text-success"> $ 0
+                                    <i class="mdi mdi-arrow-up"></i>
+                                </td>
+                                <td>
+                                    <button (click)="detaiOderId()"><i class="fas fa-user-edit"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-weight-medium">
+                                    6
+                                </td>
+                                <td>
+                                    Table 6
+                                </td>
+                                <td>
+                                    <label class="badge badge-success">Completed</label>
+                                </td>
+                                <td>
+                                    6 order
+                                </td>
+                                <td class="text-danger"> $ 150.00
+                                    <i class="mdi mdi-arrow-down"></i>
+                                </td>
+                                <td>
+                                    <button (click)="detaiOderId()"><i class="fas fa-user-edit"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-weight-medium">
+                                    7
+                                </td>
+                                <td>
+                                    Table 7
+                                </td>
+                                <td>
+                                    <label class="badge badge-warning">Not Acive</label>
+                                </td>
+                                <td>
+                                    0 order
+                                </td>
+                                <td class="text-danger"> $ 0
+                                    <i class="mdi mdi-arrow-down"></i>
+                                </td>
+                                <td>
+                                    <button (click)="detaiOderId()"><i class="fas fa-user-edit"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

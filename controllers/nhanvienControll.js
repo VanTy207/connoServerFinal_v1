@@ -4,7 +4,20 @@ exports.getByIdNhanVien = function (req, res, next) {
         if (err) {
             res.json(err);
         } else {
-            res.json(rows);
+            //res.json(rows);
+            obj = JSON.parse(JSON.stringify(rows));
+            res.render('detail_nhanvien', {
+                title: 'nhanvien detail',
+                IdNV: obj.IdNV,
+                Cmnd: obj.Cmnd,
+                TenNV: obj.TenNV,
+                Email: obj.Email,
+                GioiTinh: obj.GioiTinh,
+                Sdt: obj.Sdt,
+                LuongNV: obj.LuongNV,
+                Ca: obj.Ca,
+                NgayVao: obj.NgayVao
+            });
         }
     })
 }

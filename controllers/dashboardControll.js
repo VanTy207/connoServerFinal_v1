@@ -1,6 +1,5 @@
-
 exports.getDashboard = function (req, res, next) {
-    res.render('dashboard', {
+    res.render('dashboard',{
         title: 'dashboard',
         Total: '123',
         Order: '3455',

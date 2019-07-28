@@ -4,12 +4,13 @@ const router = express.Router();
 
 var dashboard = require('../controllers/dashboardControll');
 
-router.get('/dashboard', function(req, res, next){
-    if(req.isAuthenticated()){
-        dashboard.getDashboard;
-    }else{
-        res.send('ban chua dang nhap')
-    }
-});
+// router.get('/dashboard', (req, res)=>{
+//     if(req.isAuthenticated()){
+//         dashboard.getDashboard;
+//     }else{
+//         res.redirect('/')
+//     }
+// });
+router.get('/dashboard', dashboard.getDashboard);
 
 module.exports = router;

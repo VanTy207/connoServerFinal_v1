@@ -32,7 +32,8 @@ app.use((req, res, next) => {
     next();
 })
 
-app.use(bodyparser.urlencoded({ extended: true })); //support x-www-form-urlencoded
+//support x-www-form-urlencoded
+app.use(bodyparser.urlencoded({ extended: true })); 
 app.use(bodyparser.json());
 
 connectDB.connect(err => {
@@ -52,8 +53,10 @@ app.use(session({
 
 
 // Passport middleware
-app.use(passport.initialize()); //middleware được gọi ở từng request, kiểm tra session lấy ra passport.user nếu chưa có thì tạo rỗng.
-app.use(passport.session()); //middleware sử dụng kịch bản Passport , sử dụng session lấy thông tin user rồi gắn vào req.user.
+app.use(passport.initialize()); 
+//middleware được gọi ở từng request, kiểm tra session lấy ra passport.user nếu chưa có thì tạo rỗng.
+app.use(passport.session()); 
+//middleware sử dụng kịch bản Passport , sử dụng session lấy thông tin user rồi gắn vào req.user.
 app.use(flash());
 
 app.use('/', login);

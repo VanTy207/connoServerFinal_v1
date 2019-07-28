@@ -15,9 +15,6 @@
                 <thead>
                     <tr>
                         <th>
-                            MANV
-                        </th>
-                        <th>
                             CMND
                         </th>
                         <th>
@@ -30,6 +27,12 @@
                             Phone
                         </th>
                         <th>
+                            Ca
+                        </th>
+                        <th>
+                            Chi Tiết
+                        </th>
+                        <th>
                             Sửa
                         </th>
                     </tr>
@@ -38,9 +41,6 @@
                     <% obj.forEach(function(obj) { %>
                     <tr>
                         <td class="font-weight-medium">
-                            <%= obj.IdNV %>
-                        </td>
-                        <td>
                             <%= obj.Cmnd %>
                         </td>
                         <td>
@@ -49,11 +49,21 @@
                         <td>
                             <%= obj.Email %>
                         </td>
-                        <td class="text-danger">
+                        <td>
                             <%= obj.Sdt %>
                         </td>
+                        <td class="text-danger">
+                            <%= obj.Ca %>
+                        </td>
                         <td>
-                            <button (click)="detaiEmpolyeeId()"><i class="fas fa-user-edit"></i></button>
+                            <a href="/conno/nhanvien/<%= obj.IdNV %>">
+                                <button class="btn"><i class="fas fa-address-card"></i></button>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="/conno/nhanvien/<%= obj.IdNV %>">
+                                <button class="btn"><i class="fas fa-user-edit"></i></button>
+                            </a>
                         </td>
                     </tr>
                     <% }); %>

@@ -7,22 +7,25 @@
     <div class="form-group" style="display: flex; flex-direction: column">
         <div class="lable" style="text-align: center">
             <h2>WELCOME TO CONNO</h2>
-            <p>helping you to order coffe</p>
+            <p style="color: rgb(177, 177, 177)">helping you to order coffe</p>
         </div>
-        <form action="/" method="post" style="margin: 0.5rem">
-            <div class="input-user">
+        <form action="/" method="post" style="margin: 0.5rem; display: flex; flex-direction: column; align-items: center">
+            <div class="form-group">
                 <!-- <span>USERNAME</span> <br> -->
-                <label for="name">USER:</label>
-                <input id="name" type="text" placeholder="user" autocomplete="off">
+                <label for="name"><b>USERNAME:</b></label>
+                <input id="name" name="username" type="text" placeholder="user" autocomplete="off">
             </div>
-            <div class="input-pass">
+            <div class="form-group">
                 <!-- <span>PASSWORD</span> <br> -->
-                <label for="pass">PASS:</label>
-                <input id="pass" type="text" placeholder="password" autocomplete="off">
+                <label for="pass"><b>PASSWORD:</b></label>
+                <input id="pass" name="password" type="password" placeholder="password" autocomplete="off">
             </div>
-            <button type="submit" style="border-radius: 5px; padding: 0.5rem; cursor: pointer; background-color: #4f2300; color: white">
+            <button type="submit" class="btn btn-secondary" style="border-radius: 5px; padding: 0.5rem; cursor: pointer; background-color: #4f2300; color: white">
                 LOGIN
             </button>
         </form>
+        <% if (message.length > 0) { %>
+            <div class="alert alert-danger"><%= message %></div>
+        <% } %>
     </div>
 </div>

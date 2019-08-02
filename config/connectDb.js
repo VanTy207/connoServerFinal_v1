@@ -6,6 +6,7 @@ const connectionDB = mysql.createConnection({
     port: '3306',
     user: 'root',
     password: 'root',
-    database: 'conocafe'
+    database: 'conocafe',
+    multipleStatements: true
 });
 module.exports = connectionDB;

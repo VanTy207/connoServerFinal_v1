@@ -26,16 +26,6 @@ module.exports = function (passport) {
             // req.flash is the way to set flashdata using connect-flash
           }
 
-          // if the user is found but the password is wrong
-          // bcrypt.compareSync(password, rows[0].password, (err, isMatch) => {
-          //   if (err) throw err;
-          //   if (isMatch) {
-          //     return done(null, rows[0]);
-          //   } else {
-          //     return done(null, false, { message: 'Password incorrect' });
-          //   }
-          // });
-
            if (!bcrypt.compare(password, rows[0].password)) {
              return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); 
              // create the loginMessage and save it to session as flashdata
@@ -56,6 +46,7 @@ module.exports = function (passport) {
 
   //  hàm được gọi khi xác thực thành công để lưu thông tin user vào session
   passport.serializeUser(function (user, done) {
+    //console.log(user);
     done(null, user.IdTK);
   });
 

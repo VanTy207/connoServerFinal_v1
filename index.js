@@ -7,7 +7,7 @@ const session = require('express-session');
 const passport = require('passport');
 const flash = require('connect-flash');
 
-var port     = process.env.PORT || 3000;
+var port = process.env.PORT || 3000;
 
 var login = require('./routes/loginRoute');
 var nhanvien = require('./routes/nhanvienRoute');
@@ -18,7 +18,7 @@ require('./config/passport')(passport);
 
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views/backend'));
+app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
@@ -33,7 +33,7 @@ app.use((req, res, next) => {
 })
 
 //support x-www-form-urlencoded
-app.use(bodyparser.urlencoded({ extended: true })); 
+app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 
 connectDB.connect(err => {
@@ -46,22 +46,30 @@ connectDB.connect(err => {
 
 // Express session
 app.use(session({
-	secret: 'secret',
-	resave: true,
-	saveUninitialized: true
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true,
+    //cookie: {maxAge: 60000, expires: false},
 }));
 
 
 // Passport middleware
-app.use(passport.initialize()); 
+app.use(passport.initialize());
 //middleware được gọi ở từng request, kiểm tra session lấy ra passport.user nếu chưa có thì tạo rỗng.
-app.use(passport.session()); 
+app.use(passport.session());
 //middleware sử dụng kịch bản Passport , sử dụng session lấy thông tin user rồi gắn vào req.user.
 app.use(flash());
+app.use(function (req, res, next) {
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
+    res.locals.user = req.user || null;
+    next();
+});
 
 app.use('/', login);
 app.use('/conno', dashboard);
 app.use('/conno', nhanvien);
 
 app.listen(port);
-console.log('localhost:'+ port);
+console.log('localhost:' + port);

@@ -1,0 +1,58 @@
+<% include ../partials/header %>
+<main class="row" style="margin: 63px 0 0 0; background: #eee; height: 100%;">
+    <div class="col-12 col-sm-4 col-md-3 col-lg-3" style="padding: 0;">
+        <% include ../partials/navbar %>
+    </div>
+    <div class="col-12 col-sm-8 col-md-9 col-lg-9" style="padding: 0.5rem;">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-header">Chi Tiết Nhân Viên</h4>
+                    <form class="forms-sample" action="/conno/nhanvien/<%= obj[0].IdNV %>" method="POST">
+                        <% obj.forEach(function(obj) { %>
+                        <p style="margin: 10px 0" class="card-subtitle mb-2 text-muted"><%= obj.IdNV %> -
+                            <%= obj.TenNV %>
+                        </p>
+                        <div class="form-group">
+                            <label for="exampleInputPassword4">cmnd <b style="color: red">*</b></label>
+                            <input class="form-control" name="Cmnd" type="text" value="<%= obj.Cmnd %>">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword4">Tên Nhân Viên <b style="color: red">*</b></label>
+                            <input class="form-control" name="TenNV" type="text" value="<%= obj.TenNV %>">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword4">Giới Tính <b style="color: red">*</b></label>
+                            <input class="form-control" name="GioiTinh" type="text" value="<%= obj.GioiTinh %>">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword4">email <b style="color: red">*</b></label>
+                            <input class="form-control" name="Email" type="text" value="<%= obj.Email %>">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword4">Phone <b style="color: red">*</b></label>
+                            <input class="form-control" name="Sdt" type="text" value="<%= obj.Sdt %>">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword4">Ngày Vào <b style="color: red">*</b></label>
+                            <input class="form-control" name="NgayVao" type="text" placeholder="2019-07-20">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword4">Lương <b style="color: red">*</b></label>
+                            <input class="form-control" name="LuongNV" type="text" value="<%= obj.LuongNV %>">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword4">Ca <b style="color: red">*</b></label>
+                            <input class="form-control" name="Ca" type="text" value="<%= obj.Ca %>">
+                        </div>
+                        <button type="submit" id="submit" class="btn btn-success">
+                            UPDATE
+                        </button>
+                        <% }); %>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<% include ../partials/footer %>

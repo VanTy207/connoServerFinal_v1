@@ -10,12 +10,24 @@ router.get('/', function (req, res) {
     });
 });
 
-// process the login form
+// router.post('/', passport.authenticate('local-login', {
+//     successRedirect: '/conno/admin/dashboard',
+//     failureRedirect: '/',
+//     failureFlash: true // allow flash messages
+// }));
+
 router.post('/', passport.authenticate('local-login', {
-    successRedirect: '/conno/dashboard', // redirect to the secure profile section
-    failureRedirect: '/', // redirect back to the signup page if there is an error
-    failureFlash: true // allow flash messages
-}));
+	failureRedirect : '/',
+	failureFlash : false // allow flash messages
+}), function(req, res, next)  {
+    console.log('dsahugdsadg ' + req.user.role)
+    if(req.user.role == 0){
+        res.redirect('/conno/admin/dashboard')
+    }
+    if(req.user.role == 1){
+        res.redirect('/conno/user/table')
+    }
+});
 
 router.get('/logout', function (req, res) {
     req.logout();

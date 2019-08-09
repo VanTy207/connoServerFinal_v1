@@ -6,26 +6,26 @@ var nhanvien = {
         return db.query(sql, callback);
     },
     getByIdNhanVien:function(id, callback){
-        let sql = "SELECT * FROM nhanvien WHERE IdNV=?";
+        let sql = "SELECT * FROM nhanvien WHERE idnv=?";
         return db.query(sql,[id],callback);
     },
     addNhanVien:function(nhanvien, callback) {
-        let sql = "INSERT INTO nhanvien(IdNV, Cmnd,TenNV,GioiTinh, Sdt, NgayVao, Email, Ca, LuongNV) VALUES(?,?,?,?,?,?,?,?,?)";
-        return db.query(sql, [nhanvien.IdNV, nhanvien.Cmnd, nhanvien.TenNV, 
-                nhanvien.GioiTinh, nhanvien.Sdt, 
-                nhanvien.NgayVao, nhanvien.Email,
-                nhanvien.Ca, nhanvien.LuongNV], callback);
+        let sql = "INSERT INTO nhanvien(idnv, cmnd,tennv,gioitinh, email, ngayvao, sdt, ca, luong) VALUES(?,?,?,?,?,?,?,?,?)";
+        return db.query(sql, [nhanvien.idnv, nhanvien.cmnd, nhanvien.tennv, 
+                nhanvien.gioitinh, nhanvien.sdt, 
+                nhanvien.ngayvao, nhanvien.email,
+                nhanvien.ca, nhanvien.luong], callback);
     },
     updateNhanVien:function(id, nhanvien, callback){
-        let sql = "UPDATE nhanvien SET Cmnd=?,TenNV=?, GioiTinh=?, Sdt=?, NgayVao=?, Email=?, Ca=?, LuongNV=? WHERE IdNV=?";
-        return db.query(sql, [nhanvien.Cmnd, nhanvien.TenNV, 
-            nhanvien.GioiTinh, nhanvien.Sdt,
-            nhanvien.NgayVao, nhanvien.Email,
-            nhanvien.Ca, nhanvien.LuongNV, id],callback);
+        let sql = "UPDATE nhanvien SET cmnd=?,tennv=?, gioitinh=?, sdt=?, ngayvao=?, email=?, ca=?, luong=? WHERE idnv=?";
+        return db.query(sql, [nhanvien.cmnd, nhanvien.tennv, 
+            nhanvien.gioitinh, nhanvien.sdt,
+            nhanvien.ngayvao, nhanvien.email,
+            nhanvien.ca, nhanvien.luong, id],callback);
     },
     deleteNhanVien:function(id, callback){
-        let sql = "DELETE FROM nhanvien WHERE IdNV = ?";
-        return db.query(sql,[id],callback);
+        let sql = "DELETE FROM nhanvien WHERE idnv = ?";
+        return db.query(sql ,[id],callback);
     }
 }
 module.exports = nhanvien;

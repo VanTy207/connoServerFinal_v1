@@ -1,0 +1,25 @@
+<% include ../partials/header %>
+<div class="container my-menufood">
+    <div class="card card-menufood row nomargin">
+        <div class="card-body body-menufood col-12">
+            <ul class="list-group list-group-flush row nomargin" style="flex-direction: row">
+                <% obj.forEach(function(obj) { %>
+                <li class="list-group-item col-4" style="border: 0; padding: 0.5rem 0">
+                    <div id="item-food" class="row my-showder" style="margin: 5px; height: 150px;">
+                        <div class="head-left col-4"><img src="<%= obj.hinhanh %>" alt="..." class="img-thumbnail"></div>
+                        <div class="head-right col-8 my-display-column">
+                            <h3 style="font-size: 1rem"><%= obj.tenmon %></h3>
+                            <span ><%= obj.giamon %> $</span>
+                            <div class="my-input">
+                                <button type="button" class="btn btn-secondary"> - </button>
+                                <input name="quality" class="form-control" type="text" placeholder="0">
+                                <button type="button" class="btn btn-secondary"> + </button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -16,13 +16,10 @@
                             <div class="float-right">
                                 <p class="mb-0 text-right">Total Revenue</p>
                                 <div class="fluid-container">
-                                    <h3 class="font-weight-medium text-right mb-0">2222</h3>
+                                    <h3 class="font-weight-medium text-right mb-0">222</h3>
                                 </div>
                             </div>
                         </div>
-                        <!-- <p class="text-muted mt-3 mb-0">
-                                                                <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> {{'65% lower growth'}}
-                                                              </p> -->
                     </div>
                 </div>
             </div>
@@ -36,13 +33,10 @@
                             <div class="float-right">
                                 <p class="mb-0 text-right">Orders</p>
                                 <div class="fluid-container">
-                                    <h3 class="font-weight-medium text-right mb-0">333333</h3>
+                                    <h3 class="font-weight-medium text-right mb-0">333</h3>
                                 </div>
                             </div>
                         </div>
-                        <!-- <p class="text-muted mt-3 mb-0">
-                                                                <i class="mdi mdi-bookmark-outline mr-1" aria-hidden="true"></i> {{'Product-wise sales'}}
-                                                              </p> -->
                     </div>
                 </div>
             </div>
@@ -56,13 +50,10 @@
                             <div class="float-right">
                                 <p class="mb-0 text-right">Sales</p>
                                 <div class="fluid-container">
-                                    <h3 class="font-weight-medium text-right mb-0">444444</h3>
+                                    <h3 class="font-weight-medium text-right mb-0">444</h3>
                                 </div>
                             </div>
                         </div>
-                        <!-- <p class="text-muted mt-3 mb-0">
-                                                                <i class="mdi mdi-calendar mr-1" aria-hidden="true"></i> {{'Weekly Sales'}}
-                                                              </p> -->
                     </div>
                 </div>
             </div>
@@ -80,14 +71,11 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <p class="text-muted mt-3 mb-0">
-                                                                <i class="mdi mdi-reload mr-1" aria-hidden="true"></i> {{'Product-wise sales'}}
-                                                              </p> -->
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row panel-dashboard">
+        <div class="row panel-dashboard" style="margin-top: 0.5rem">
             <div class="col-lg-12 grid-margin">
                 <div class="card">
                     <div class="card-body">
@@ -96,54 +84,62 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>
+                                        <th class="text-center">
                                             Stt
                                         </th>
-                                        <th>
+                                        <!-- <th class="text-center">
+                                            Ma Hóa Đơn
+                                        </th> -->
+                                        <th class="text-center">
                                             Bàn
-                                        </th>
-                                        <th>
+                                        </th >
+                                        <th class="text-center">
                                             Trạng Thái
                                         </th>
-                                        <th>
-                                            Số Lượng
+                                        <th class="text-center">
+                                            Mã Thanh Toán
                                         </th>
-                                        <th>
-                                            Tổng Tiền
+                                        <th class="text-center">
+                                             Nhân Viên
                                         </th>
-                                        <th>
+                                        <th class="text-center">
                                             Chi Tiết
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <% orders.forEach(function(order, i) { %>
+                                    <% orderTable.forEach(function(order, i) { %>
                                     <tr>
                                         <td class="font-weight-medium text-center">
                                                 <%= i + 1 %>
                                         </td>
+                                        <!-- <td class="text-center">
+                                            <%= order.idhd %>
+                                        </td> -->
                                         <td class="text-center">
-                                            <%= order.TenBan %>
+                                            <%= order.tenban %>
                                         </td>
                                         <td class="text-center">
-                                            <%if (order.TrangThai == 0) { %>
+                                            <%if (order.trangthai == 0) { %>
                                             <label class="badge badge-warning">Not Acive</label>
                                             <% } %>
-                                            <%if (order.TrangThai == 1) { %>
-                                            <label class="badge badge-success">Completed</label>
+                                            <%if (order.trangthai == 1) { %>
+                                            <label class="badge badge-success">Acive</label>
                                             <% } %>
-                                            <%if (order.TrangThai == 2) { %>
+                                            <%if (order.trangthai == 2) { %>
                                             <label class="badge badge-danger">Pending</label>
                                             <% } %>
                                         </td>
                                         <td class="text-center">
-                                            <%= order.SoLuong %>
+                                            <%= order.mathanhtoan %>
                                         </td>
                                         <td class="text-danger text-center">
-                                            <%= order.TongTien %> $
+                                            <%= order.tennv %>
                                         </td>
                                         <td class="text-center">
-                                            <button class="btn"><i class="fas fa-user-edit"></i></button>
+                                            <a href="/conno/admin/order/detail/<%= order.idban %>/<%= order.mathanhtoan %>">
+                                                <button class="btn"><i class="fas fa-user-edit"></i></button>
+                                            </a>
                                         </td>
                                     </tr>
                                     <% }); %>

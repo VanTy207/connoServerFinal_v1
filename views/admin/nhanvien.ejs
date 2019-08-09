@@ -22,6 +22,9 @@
                         <thead>
                             <tr>
                                 <th>
+                                    User
+                                </th>
+                                <th>
                                     CMND
                                 </th>
                                 <th>
@@ -47,28 +50,33 @@
                         <tbody>
                             <% obj.forEach(function(obj) { %>
                             <tr>
+                                <td>
+                                    <div class="img-fluid img-thumbnail my-img">
+                                        <img src="/images/user/<%= obj.hinhanh %>" alt="Responsive image">
+                                    </div>
+                                </td>
                                 <td class="font-weight-medium">
-                                    <%= obj.Cmnd %>
+                                    <%= obj.cmnd %>
                                 </td>
                                 <td>
-                                    <%= obj.TenNV %>
+                                    <%= obj.tennv %>
                                 </td>
                                 <td>
-                                    <%= obj.Email %>
+                                    <%= obj.email %>
                                 </td>
                                 <td>
-                                    <%= obj.Sdt %>
+                                    <%= obj.sdt %>
                                 </td>
                                 <td class="text-danger">
-                                    <%= obj.Ca %>
+                                    <%= obj.ca %>
                                 </td>
                                 <td>
-                                    <a href="/conno/nhanvien/<%= obj.IdNV %>">
+                                    <a href="/conno/admin/nhanvien/<%= obj.idnv %>">
                                         <button class="btn"><i class="fas fa-address-card"></i></button>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="/conno/nhanvien/delete/<%= obj.IdNV %>">
+                                    <a href="/conno/admin/nhanvien/delete/<%= obj.idnv %>">
                                         <button class="btn"><i class="fas fa-trash-alt"></i></button>
                                     </a>
                                 </td>

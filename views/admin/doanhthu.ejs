@@ -1,0 +1,46 @@
+<% include ../partials/header %>
+<main class="row" style="margin: 63px 0 0 0; background: #eee; height: 100%;">
+    <div class="col-12 col-sm-4 col-md-3 col-lg-3" style="padding: 0;">
+        <% include ../partials/navbar %>
+    </div>
+    <div class="col-12 col-sm-8 col-md-9 col-lg-9" style="padding: 0.5rem;">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Doanh Thu</h4>
+                    <div class="table-responsive" style="height:100vh;">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Stt</th>
+                                    <th class="text-center">Mã Hóa Đơn</th>
+                                    <th class="text-center">Ngày</th>
+                                    <th class="text-center">Doanh Thu</th>
+                                    <th class="text-center">Tên Nhân Viên</th>
+                                    <th class="text-center">Chi Tiết</th>
+                                </tr>
+                            </thead>
+                            <tbody id="myTable">
+                                <% arr.forEach(function(order, i) { %>
+                                <tr>
+                                    <td class="text-center"><%= i + 1 %></td>
+                                    <td class="text-center"><%= order.iddt %></td>
+                                    <td class="text-center"><%= order.ngaylap %></td>
+                                    <td class="text-center"><%= order.doanhthu %></td>
+                                    <td class="text-center"><%= order.tennv %></td>
+                                    <td class="text-center">
+                                        <a href="/conno/admin/doanhthu/detail/<%= order.iddt %>">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<% include ../partials/footer %>

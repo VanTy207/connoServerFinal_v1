@@ -1,0 +1,187 @@
+<% include ../partials/header %>
+<main class="row" style="margin: 63px 0 0 0; background: #eee; height: 100%;">
+    <div class="col-12 col-sm-4 col-md-3 col-lg-3" style="padding: 0;">
+        <% include ../partials/navbar %>
+    </div>
+    <div class="col-12 col-sm-8 col-md-9 col-lg-9" style="padding: 0.5rem;">
+        <div class="row list" style="margin: 0; background: #fff; padding: 0.5rem">
+            <ul class="nav nav-tabs" id="myTab" role="tablist" style="width:100%">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                        aria-controls="home" aria-selected="true">Hóa Đơn</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                        aria-controls="profile" aria-selected="false">Phiếu Nhập</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                        aria-controls="contact" aria-selected="false">Phiếu Xuất</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent" style="width:100%">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <h4 class="card-header">Hóa Đơn</h4>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">
+                                        Stt
+                                    </th>
+                                    <th class="text-center">
+                                        Mã Hóa Đơn
+                                    </th>
+                                    <th class="text-center">
+                                        Ngày
+                                    </th>
+                                    <th class="text-center">
+                                        Mã Thanh Toán
+                                    </th>
+                                    <th class="text-center">
+                                        Tổng Tiền
+                                    </th>
+                                    <th class="text-center">
+                                        Tên Nhân Viên
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% hd.forEach(function(order, i) { %>
+                                <tr>
+                                    <td class="font-weight-medium text-center">
+                                        <%= i + 1 %>
+                                    </td>
+                                    <td class="text-center">
+                                        <%= order.idhd %>
+                                    </td>
+                                    <td class="text-center">
+                                        <%= order.ngaytao %>
+                                    </td>
+                                    <td class="text-center">
+                                        <%= order.mathanhtoan %>
+                                    </td>
+                                    <td class="text-center">
+                                        <%= order.tongtien %>
+                                    </td>
+                                    <td class="text-danger text-center">
+                                        <%= order.tennv %>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Phieu nhap -->
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <h4 class="card-header">Phiếu Nhập</h4>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">
+                                        Stt
+                                    </th>
+                                    <th class="text-center">
+                                        Mã Phiếu Nhập
+                                    </th>
+                                    <th class="text-center">
+                                        Ngày Nhập
+                                    </th>
+                                    <th class="text-center">
+                                        Tổng Tiền
+                                    </th>
+                                    <th class="text-center">
+                                        Tên Nhân Viên
+                                    </th>
+                                    <th class="text-center">
+                                        Chi Tiết
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% pn.forEach(function(obj, i) { %>
+                                <tr>
+                                    <td class="font-weight-medium text-center">
+                                        <%= i + 1 %>
+                                    </td>
+                                    <td class="text-center">
+                                        <%= obj.idpn %>
+                                    </td>
+                                    <td class="text-center">
+                                        <%= obj.ngaynhap %>
+                                    </td>
+                                    <td class="text-center">
+                                            <%= obj.tongtien %>
+                                        </td>
+                                    <td class="text-danger text-center">
+                                        <%= obj.tennv %>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="/conno/admin/bill/phieunhap/detail/<%= obj.idpn %>">
+                                            <button class="btn"><i class="fas fa-edit"></i></button>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- phieu xuat -->
+                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                    <h4 class="card-header">Phiếu Xuất</h4>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">
+                                        Stt
+                                    </th>
+                                    <th class="text-center">
+                                        Mã Phiếu Xuất
+                                    </th>
+                                    <th class="text-center">
+                                        Ngày Xuất
+                                    </th>
+                                    <th class="text-center">
+                                        Tên Nhân Viên
+                                    </th>
+                                    <th class="text-center">
+                                        Chi Tiết
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% px.forEach(function(obj, i) { %>
+                                <tr>
+                                    <td class="font-weight-medium text-center">
+                                        <%= i + 1 %>
+                                    </td>
+                                    <td class="text-center">
+                                        <%= obj.idpx %>
+                                    </td>
+                                    <td class="text-center">
+                                        <%= obj.ngayxuat %>
+                                    </td>
+                                    <td class="text-danger text-center">
+                                        <%= obj.tennv %>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="/conno/admin/bill/phieuxuat/detail/<%= obj.idpx %>">
+                                            <button class="btn"><i class="fas fa-edit"></i></button>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<% include ../partials/footer %>

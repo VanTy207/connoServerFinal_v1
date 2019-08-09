@@ -8,42 +8,42 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-header">Chi Tiết Nhân Viên</h4>
-                    <form class="forms-sample" action="/conno/nhanvien/<%= obj[0].IdNV %>" method="POST">
+                    <form class="forms-sample" action="/conno/admin/nhanvien/<%= obj[0].idnv %>" method="POST">
                         <% obj.forEach(function(obj) { %>
-                        <p style="margin: 10px 0" class="card-subtitle mb-2 text-muted"><%= obj.IdNV %> -
-                            <%= obj.TenNV %>
+                        <p style="margin: 10px 0" class="card-subtitle mb-2 text-muted"><%= obj.idnv %> -
+                            <%= obj.tennv %>
                         </p>
                         <div class="form-group">
                             <label for="exampleInputPassword4">cmnd <b style="color: red">*</b></label>
-                            <input class="form-control" name="Cmnd" type="text" value="<%= obj.Cmnd %>">
+                            <input class="form-control" name="cmnd" type="text" value="<%= obj.cmnd %>">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword4">Tên Nhân Viên <b style="color: red">*</b></label>
-                            <input class="form-control" name="TenNV" type="text" value="<%= obj.TenNV %>">
+                            <input class="form-control" name="tennv" type="text" value="<%= obj.tennv %>">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword4">Giới Tính <b style="color: red">*</b></label>
-                            <input class="form-control" name="GioiTinh" type="text" value="<%= obj.GioiTinh %>">
+                            <input class="form-control" name="gioitinh" type="text" value="<%= obj.gioitinh %>">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword4">email <b style="color: red">*</b></label>
-                            <input class="form-control" name="Email" type="text" value="<%= obj.Email %>">
+                            <input class="form-control" name="email" type="text" value="<%= obj.email %>">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword4">Phone <b style="color: red">*</b></label>
-                            <input class="form-control" name="Sdt" type="text" value="<%= obj.Sdt %>">
+                            <input class="form-control" name="sdt" type="text" value="<%= obj.sdt %>">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword4">Ngày Vào <b style="color: red">*</b></label>
-                            <input class="form-control" name="NgayVao" type="text" placeholder="2019-07-20">
+                            <label for="exampleInputPassword4">Ngày Vào <b style="color: red">*</b> ( 2017-09-20 )</label>
+                            <input class="form-control" name="ngayvao" type="text" value="<%= obj.ngayvao %>">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword4">Lương <b style="color: red">*</b></label>
-                            <input class="form-control" name="LuongNV" type="text" value="<%= obj.LuongNV %>">
+                            <input class="form-control" name="luong" type="text" value="<%= obj.luong %>">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword4">Ca <b style="color: red">*</b></label>
-                            <input class="form-control" name="Ca" type="text" value="<%= obj.Ca %>">
+                            <input class="form-control" name="ca" type="text" value="<%= obj.ca %>">
                         </div>
                         <button type="submit" id="submit" class="btn btn-success">
                             UPDATE

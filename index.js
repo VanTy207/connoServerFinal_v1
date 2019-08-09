@@ -6,12 +6,10 @@ const connectDB = require('./config/connectDb');
 const session = require('express-session');
 const passport = require('passport');
 const flash = require('connect-flash');
+const cookieParser = require('cookie-parser')
+const moment = require('moment');
 
 var port = process.env.PORT || 3000;
-
-var login = require('./routes/loginRoute');
-var nhanvien = require('./routes/nhanvienRoute');
-var dashboard = require('./routes/dashboardRoute');
 
 const app = express();
 require('./config/passport')(passport);
@@ -44,12 +42,18 @@ connectDB.connect(err => {
     }
 })
 
+app.use(cookieParser());
+
 // Express session
 app.use(session({
+    key: 'user',
     secret: 'secret',
     resave: true,
     saveUninitialized: true,
-    //cookie: {maxAge: 60000, expires: false},
+    // cookie: {
+    //      maxAge: 6000000000,
+    //      secure: true
+    //  },
 }));
 
 
@@ -67,9 +71,24 @@ app.use(function (req, res, next) {
     next();
 });
 
+var login = require('./routes/loginRoute');
+var nhanvien = require('./routes/nhanvienRoute');
+var dashboard = require('./routes/dashboardRoute');
+var table = require('./routes/tableRoute');
+var menufood = require('./routes/menuFoodRoute');
+var order = require('./routes/orderRoute');
+var bill = require('./routes/billRoute');
+var sale = require('./routes/doanhthuRoute');
+
 app.use('/', login);
-app.use('/conno', dashboard);
-app.use('/conno', nhanvien);
+app.use('/conno/admin', dashboard);
+app.use('/conno/admin', nhanvien);
+app.use('/conno/admin', order);
+app.use('/conno/admin', bill);
+app.use('/conno/admin', sale);
+
+app.use('/conno/user', table);
+app.use('/conno/user', menufood);
 
 app.listen(port);
 console.log('localhost:' + port);

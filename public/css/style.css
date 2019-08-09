@@ -1,3 +1,24 @@
+.nomargin{
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+#my-navbar{
+    height: 100%;
+}
+.my-img{
+    width: 50px;
+    height: 50px;
+}
+.my-img img{
+    width: 100%;
+    height: 100%;
+}
+.my-display-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .info{
     display: flex;
     flex-direction: row;
@@ -22,4 +43,60 @@
 }
 a{
     text-decoration: none !important;
+}
+
+.my-table{
+    position: relative; 
+    top: 63px; 
+    margin: auto; 
+    padding: 1rem; 
+    background: #eee; 
+    height: 100%;
+}
+.my-table .card-table{
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between; 
+    align-items: center;
+    margin: auto
+}
+.my-table .card-table .body-table{
+    background-color: #9a652f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    margin: 5px;
+}
+.firt-table{
+    width: 100%;
+    display: flex;
+    padding: 1rem;
+    flex-direction: row;
+    justify-content: space-between !important;
+}
+.end-table{
+    padding: 0.5rem
+}
+
+.my-menufood{
+    position: relative; 
+    top: 63px; 
+    margin: auto; 
+    padding: 1rem; 
+    background: #eee; 
+    height: 100%;
+}
+
+.my-menufood .my-input{
+    display: flex;
+    flex-direction: row;
+}
+.my-showder{
+    box-shadow: 0 0 5px rgb(206, 206, 206);
+}
+#item-food{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

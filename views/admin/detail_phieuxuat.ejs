@@ -1,0 +1,66 @@
+<% include ../partials/header %>
+<main class="row" style="margin: 63px 0 0 0; background: #eee; height: 100%;">
+    <div class="col-12 col-sm-4 col-md-3 col-lg-3" style="padding: 0;">
+        <% include ../partials/navbar %>
+    </div>
+    <div class="col-12 col-sm-8 col-md-9 col-lg-9" style="padding: 0.5rem;">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-header">Chi Tiết Phiếu Xuất</h4>
+                    <form class="forms-sample" action="/conno/admin/bill/detail/<%= arr[0].idpx %>" method="POST">
+                        <p style="margin: 10px 0" class="card-subtitle mb-2 text-muted">
+
+                        </p>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">
+                                        Mã Phiếu Xuất
+                                    </th>
+                                    <th class="text-center">
+                                        Tên Mặt Hàng
+                                    </th>
+                                    <th class="text-center">
+                                        Ngày Xuất
+                                    </th>
+                                    <th class="text-center">
+                                        Số Lượng
+                                    </th>
+                                    <th class="text-center">
+                                        Nhân Viên
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% arr.forEach(function(order, i) { %>
+                                <tr>
+                                    <td class="font-weight-medium text-center">
+                                        <%= arr[i].idpx %>
+                                    </td>
+                                    <td class="font-weight-medium text-center">
+                                        <%= arr[i].tenmh %>
+                                    </td>
+                                    <td class="text-center">
+                                        <%= arr[i].ngayxuat %>
+                                    </td>
+                                    <td class="text-center">
+                                        <%= arr[i].soluong %>
+                                    </td>
+                                    <td class="text-danger text-center">
+                                        <%= arr[i].tennv %>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                            </tbody>
+                        </table>
+                        <!-- <button type="submit" id="submit" class="btn btn-success">
+                            Xuất
+                        </button> -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<% include ../partials/footer %>

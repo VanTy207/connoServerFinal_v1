@@ -29,7 +29,6 @@ exports.getByIdDetailOrder = function (req, res, next) {
     })
 }
 
-
 exports.saveTotalOrder = function (req, res, next) {
     orders.saveTotalOrder(req.params.idban, req.params.matt, req.params.idhd,function (err, rows) {
         if(err){

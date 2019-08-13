@@ -7,7 +7,8 @@ const session = require('express-session');
 const passport = require('passport');
 const flash = require('connect-flash');
 const cookieParser = require('cookie-parser')
-const moment = require('moment');
+// const moment = require('moment');
+const MySQLStore = require('express-mysql-session')(session);
 
 var port = process.env.PORT || 3000;
 
@@ -33,6 +34,7 @@ app.use((req, res, next) => {
 //support x-www-form-urlencoded
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
+app.use(cookieParser());
 
 connectDB.connect(err => {
     if (!err) {
@@ -42,19 +44,33 @@ connectDB.connect(err => {
     }
 })
 
-app.use(cookieParser());
+
 
 // Express session
+
+var sessionStore = new MySQLStore({
+    host: 'localhost',
+    port: '3306',
+    user: 'root',
+    password: 'root',
+    database: 'cafefinal',
+    multipleStatements: true
+});
+
 app.use(session({
-    key: 'user',
     secret: 'secret',
-    resave: true,
+    resave: false,
+    store: sessionStore,
     saveUninitialized: true,
-    // cookie: {
-    //      maxAge: 6000000000,
-    //      secure: true
-    //  },
+    cookie: {
+        maxAge: 60 * 60 * 1000
+    }
 }));
+
+app.use(function (req, res, next) {
+    res.locals.session = req.session;
+    next();
+});
 
 
 // Passport middleware
@@ -75,10 +91,10 @@ var login = require('./routes/loginRoute');
 var nhanvien = require('./routes/nhanvienRoute');
 var dashboard = require('./routes/dashboardRoute');
 var table = require('./routes/tableRoute');
-var menufood = require('./routes/menuFoodRoute');
 var order = require('./routes/orderRoute');
 var bill = require('./routes/billRoute');
 var sale = require('./routes/doanhthuRoute');
+var food = require('./routes/foodsRoute');
 
 app.use('/', login);
 app.use('/conno/admin', dashboard);
@@ -87,8 +103,11 @@ app.use('/conno/admin', order);
 app.use('/conno/admin', bill);
 app.use('/conno/admin', sale);
 
+
 app.use('/conno/user', table);
-app.use('/conno/user', menufood);
+app.use('/conno/user', food);
 
 app.listen(port);
 console.log('localhost:' + port);
+
+module.exports = app;

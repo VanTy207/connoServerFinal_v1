@@ -12,15 +12,15 @@
             </div>
             <div class="end-table">
                 <%if (obj.trangthai == 0) { %>
-                <a href="/conno/user/menuorder">
+                <a href="/conno/user/foods">
                     <button class="btn btn-warning">Order</button>
                 </a>
                 <% } %>
+
                 <%if (obj.trangthai == 1) { %>
-                <button class="btn btn-success">Detail</button>
-                <% } %>
-                <%if (obj.trangthai == 2) { %>
-                <button class="btn btn-danger">Plus</button>
+                <a href="/conno/user/table/detail/<%= obj.idban %>/<%= obj.idban %>">
+                    <button class="btn btn-success">Detail</button>
+                </a>
                 <% } %>
             </div>
         </div>

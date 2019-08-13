@@ -1,0 +1,44 @@
+<% include ../partials/header %>
+<%if ( products) { %>
+<div class="container my-menufood">
+    <div class="card card-menufood row nomargin" style="padding: 1rem">
+        <div class="cart page" style="margin: 0.5rem">
+            <ul class="list-group">
+                <% products.forEach(function(index, i) { %>
+                <li class="list-group-item clearfix"
+                    style="display: flex; flex-direction: row; justify-content: space-between; align-items: center">
+                    <div class="img-thumbnail" style="width: 100px; height: 100px;">
+                        <img class="img-fluid" src="<%= index.item.hinhanh %>" alt="Responsive image"
+                            style="width: 100%; height: 100%;">    
+                    </div>
+                    <div class="col-xs-2">
+                        <span><%= index.item.tenmon %></span>
+                    </div>
+                    <div class="col-xs-2 text-right">
+                        <span class="badge"><%= index.quantity %></span>
+                    </div>
+                    <div class="col-xs-3 text-right">
+                        <%= index.item.giamon %> $
+                    </div>
+                    <div class="col-xs-2 text-right">
+                        <a href="/conno/user/foods/remove/<%= index.item.idmon %>"><i class="fas fa-trash-alt"></i>
+                            Remove</a>
+                    </div>
+                </li>
+                <% }); %>
+            </ul>
+        </div>
+        <div class="text-right">
+            <strong>Total: <%= totalPrice %> $</strong>
+        </div>
+        <div class="text-right">
+            <a href="#" type="button" class="btn btn-success">Checkout</a>
+        </div>
+    </div>
+</div>
+
+<% } %>
+
+<%if ( !products) { %>
+Your shopping cart is empty.
+<% } %>

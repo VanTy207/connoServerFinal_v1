@@ -2,7 +2,7 @@ var Cart = require('../models/cart');
 var products = require('../models/foods');
 
 exports.getFoods = function (req, res, next) {
-    let sess = req.session.passport.user;
+    var sess = req.session.passport.user;
     products.allFoods((err, rows) => {
         if (err) {
             res.JSON(err);
@@ -45,7 +45,7 @@ exports.detailCart = function (req, res, next) {
         });
     }
     else {
-        var cart = new Cart(req.session.cart);
+        let cart = new Cart(req.session.cart);
         res.render('users/detail_foods', {
             title: 'NodeJS Shopping Cart',
             products: cart.getItems(),
@@ -55,8 +55,8 @@ exports.detailCart = function (req, res, next) {
 }
 
 exports.removeFood = function (req, res, next) {
-    var productId = req.params.id;
-    var cart = new Cart(req.session.cart ? req.session.cart : {});
+    let productId = req.params.id;
+    let cart = new Cart(req.session.cart ? req.session.cart : {});
 
     cart.remove(productId);
     req.session.cart = cart;

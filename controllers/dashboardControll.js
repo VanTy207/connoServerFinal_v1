@@ -4,8 +4,8 @@ const session = require('express-session');
 var moment = require('moment');
 
 exports.getDashboard = function (req, res, next) {
-     let sess = req.session.passport.user;
-     console.log('session role111 ' + sess.role);
+    var sess = req.session.passport.user;
+    console.log('session role111 ' + sess.role);
     dashboard.totalNhanvien(function (err, rows) {
         if (!err) {
             totals = JSON.parse(JSON.stringify(rows[0]));

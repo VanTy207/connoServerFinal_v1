@@ -16,7 +16,8 @@ module.exports = function (passport) {
     },
       function (req, username, password, done) { // callback with email and password from our form
         //db.connect();
-        db.query("SELECT * FROM taikhoan WHERE username = ?", [username], function (err, rows) {
+        let sql = `SELECT * FROM taikhoan WHERE username = ?`;
+        db.query(sql, [username], function (err, rows) {
           if (err) {
             return done(err);
           }
@@ -39,7 +40,8 @@ module.exports = function (passport) {
   // hàm được gọi bởi passport.session .Giúp ta lấy dữ liệu user dựa vào thông tin lưu trên session và gắn vào req.user
   passport.deserializeUser(function (idtk, done) {
     //db.connect();
-    db.query("SELECT * FROM taikhoan WHERE idtk = ? ", [idtk], function (err, rows) {
+    let sql = `SELECT * FROM taikhoan WHERE idtk = ?`;
+    db.query(sql, [idtk], function (err, rows) {
       return done(null, true);
     });
   });
